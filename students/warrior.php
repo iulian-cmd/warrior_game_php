@@ -14,8 +14,7 @@ abstract class Warrior extends LocalWarrior {
         public $shield; 
         public $imageUrl; 
         public $weapon;
-        // $id, $name, $speed, $life, $shield, $imageUrl, $weapon
-
+     
         public function __construct($id){
             $this->id=$id;
 //             $this->name=$name; 
@@ -25,12 +24,14 @@ abstract class Warrior extends LocalWarrior {
 //             $this->imageUrl=$imageUrl; 
 //             $this->weapon=$weapon;
         }
-        public function setWeapon($weapon){
+        public function setWeapon(Weapon $weapon){
             $this->weapon=$weapon;
          }
+         function setImageUrl($imageUrl){
+            $this->imageUrl=$imageUrl;
+        }
 
-// $weapon = new Weapon();
-// $weapon->setWeapon('railgun');
+       
 }
 
 
@@ -66,8 +67,19 @@ class PokemonWarrior extends Warrior {
     }
 
 class Weapon {
-    private $weapon;
+    public $id;
+    public $strength;
+    public $imageUrl;
 
+    public function __construct($id, $strength){
+        $this->id=$id; 
+        $this->strength=$strength; 
     }
 
+    function setImageUrl($imageUrl){
+        $this->imageUrl=$imageUrl;
+    }
+    }
+
+   
 ?>
